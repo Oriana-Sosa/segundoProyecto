@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Noto+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Noto+Serif&family=Reem+Kufi+Fun&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nombreSitio{
+    font-family: 'Berkshire Swash', cursive;
+    font-weight: 400;
+    color: #085808;
+    font-size: 35px;
+}
+
+.nombreSitio:hover{
+    color: #085808;
+}
+
+svg{
+    width: 30px;
+}
+
+.navbar-toggler{
+    border: none !important;
+}
+
+.bienvenida{
+    color: #085808;
+    font-family: 'Berkshire Swash', cursive;
+}
+
+.contenedorSaludo{
+    padding: 80px;
+}
+
+.imgCard{
+    width: 100%;
+}
+
+.generosLiterarios{
+    font-family: 'Reem Kufi Fun', sans-serif;
+}
+
+.boton{
+    border: none;
+    background-color: #009600;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+footer{
+    background-color: #085808;
+    margin-top: 15px;
+}
+
+.nombreFooter{
+    color: rgb(255, 255, 255);
+    padding: 15px;
+    font-size: 30px;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    font-family: 'Berkshire Swash', cursive;
+}
+
+a{
+    text-decoration: none;
+}
+
+.copyright{
+    color: rgb(255, 255, 255);
+    font-family: 'Reem Kufi Fun', sans-serif;
+}
+
+.tarjeta{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.imgCarrito{
+    width: 100px;
+}
+
+.total{
+    margin-left: 1rem;
+}

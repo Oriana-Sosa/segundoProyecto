@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/nambooks.jpg" type="image/x-icon">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Nambooks | Comprá tus libros favoritos en un solo lugar</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand nombreSitio" href="index.html">Nambooks</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" id="botonCompras">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                    <h2 class="offcanvas-title" id="offcanvasNavbarLabel">Mi carrito</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body" id="carrito">
+                    </div>
+                    <h5 id="totalCompra" class="total">Total compra: $</h5>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!--Bienvenida-->
+        <div class="container-fluid bg-light contenedorSaludo">
+            <h3 class="fs-1 bienvenida text-center">Bienvenido a Nambooks</h3>
+            <h4 class="fs-4 text-center  bienvenida">Los mejores libros, al mejor precio</h4>
+        </div>
+
+        <!--Libros-->
+        <div class="container-fluid bg-light">
+            <div class="row">
+                <h3 class="my-3 generosLiterarios">Literatura Clásica</h3>
+                <div id="contenedorLibros" class="d-flex flex-wrap justify-content-around">
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid bg-light">
+            <div class="row">
+                <h3 class="my-3 generosLiterarios">Literatura juvenil</h3>
+                    <div class="d-flex flex-wrap justify-content-around" id="contenedorJuveniles">
+                    </div>
+            </div>
+        </div>
+
+        <div class="container-fluid bg-light">
+            <div class="row">
+                <h3 class="my-3 generosLiterarios">Libros de misterio</h3>
+                    <div class="d-flex flex-wrap justify-content-around" id="contenedorMisterio">
+                    </div>
+            </div>
+        </div>
+
+        <div class="container-fluid bg-light">
+            <div class="row">
+                <h3 class="my-3 generosLiterarios">Libros recomendados</h3>
+                    <div class="d-flex flex-wrap justify-content-around" id="contenedorRecomendados">
+                    </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="d-flex flex-column text-center">
+                    <a href="index.html"><h3 class="nombreFooter">Nambooks</h3></a>
+                    <h5 class="fs-5 copyright align-self-end">©2022 Oriana Sosa, todos los derechos reservados</h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+</body>
+</html>
