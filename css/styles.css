@@ -7,6 +7,7 @@
     box-sizing: border-box;
 }
 
+/*Header y nav*/
 .nombreSitio{
     font-family: 'Berkshire Swash', cursive;
     font-weight: 400;
@@ -26,6 +27,7 @@ svg{
     border: none !important;
 }
 
+/*Portada*/
 .bienvenida{
     color: #085808;
     font-family: 'Berkshire Swash', cursive;
@@ -35,6 +37,7 @@ svg{
     padding: 80px;
 }
 
+/*Oferta de libros*/
 .imgCard{
     width: 100%;
 }
@@ -43,6 +46,11 @@ svg{
     font-family: 'Reem Kufi Fun', sans-serif;
 }
 
+.tarjeta{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+/*Botones*/
 .boton{
     border: none;
     background-color: #009600;
@@ -51,6 +59,7 @@ svg{
     padding: 10px;
 }
 
+/*Footer*/
 footer{
     background-color: #085808;
     margin-top: 15px;
@@ -73,10 +82,8 @@ a{
     font-family: 'Reem Kufi Fun', sans-serif;
 }
 
-.tarjeta{
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
 
+/*Carrito del Nav*/
 .imgCarrito{
     width: 100px;
 }
@@ -84,3 +91,21 @@ a{
 .total{
     margin-left: 1rem;
 }
+
+/*Sección de factura*/
+.infoFactura{
+    font-size: 20px;
+    font-family: 'Reem Kufi Fun', sans-serif;
+    margin: 15px;
+}
+
+.input{
+    width: 80%;
+    padding: 10px;
+}
+
+.contenedorFactura{
+    margin-top: 50px;
+    width: 70%;
+}
+

@@ -4,40 +4,39 @@
 //Libros
 
 class Libros {
-    constructor (titulo, autor, precio, imagen, id, numero) {
+    constructor (titulo, autor, precio, imagen, id, cantidad) {
         this.titulo = titulo;
         this.autor = autor;
         this.precio = precio;
         this.imagen = imagen
         this.id = id;
-        this.cantidad = 1;
-        this.numero = numero;
+        this.cantidad = cantidad;
     }
 }
 
 //Clásicos
-const orgulloPrejuicio = new Libros ("Orgullo y Prejuicio", "Jane Austen", 250, "orgullo.jpg", "btn1", 1);
-const grandesEsperanzas = new Libros ("Grandes esperanzas", "Charles Dickens", 250, "esperanzas.jpg", "btn2", 2);
-const persuasion = new Libros ("Persuasión", "Jane Austen", 210, "persuasion.png", "btn3", 3);
-const islaDelTesoro = new Libros ("La isla del tesoro", "Robert Louis Stevenson", 230, "isla.jpg", "btn4", 4);
+const orgulloPrejuicio = new Libros ("Orgullo y Prejuicio", "Jane Austen", 250, "orgullo.jpg", 1, 1);
+const grandesEsperanzas = new Libros ("Grandes esperanzas", "Charles Dickens", 250, "esperanzas.jpg", 2, 1);
+const persuasion = new Libros ("Persuasión", "Jane Austen", 210, "persuasion.png", "btn3", 3, 1);
+const islaDelTesoro = new Libros ("La isla del tesoro", "Robert Louis Stevenson", 230, "isla.jpg", 4, 1);
 
 //Juveniles
-const seleccion = new Libros ("La selección", "Kiera Cass", 230, "seleccion.jpg", "btn5", 5);
-const juegosHambre = new Libros ("Los juegos del hambre", "Suzanne Collins", 250, "hambre.jpg", "btn6", 6);
-const delirium = new Libros ("Delirium", "Lauren Oliver", 230, "delirium.webp", "btn7", 7);
-const quintaOla = new Libros ("La quinta ola", "Rick Yancey", 200, "quintaOla.jpg", "btn8", 8);
+const seleccion = new Libros ("La selección", "Kiera Cass", 230, "seleccion.jpg", 5, 1);
+const juegosHambre = new Libros ("Los juegos del hambre", "Suzanne Collins", 250, "hambre.jpg", 6, 1);
+const delirium = new Libros ("Delirium", "Lauren Oliver", 230, "delirium.webp", 7, 1);
+const quintaOla = new Libros ("La quinta ola", "Rick Yancey", 200, "quintaOla.jpg", 8, 1);
 
 //Misterio
-const sherlock = new Libros ("Las aventuras de Sherlock Holmes", "Arthur Conan Doyle", 230, "sherlock.jpg", "btn9", 9);
-const orientExpress = new Libros ("Asesinato en el Orient Express", "Agatha Christie", 250, "orient.jpg", "btn10", 10);
-const vecinosNovelas = new Libros ("Los vecinos mueren en las novelas", "Sergio Aguirre", 210, "novelas.jpg", "btn11", 11);
-const telon = new Libros ("Telón", "Agatha Christie", 215, "telon.jpg", "btn12", 12);
+const sherlock = new Libros ("Las aventuras de Sherlock Holmes", "Arthur Conan Doyle", 230, "sherlock.jpg", 9, 1);
+const orientExpress = new Libros ("Asesinato en el Orient Express", "Agatha Christie", 250, "orient.jpg", 10, 1);
+const vecinosNovelas = new Libros ("Los vecinos mueren en las novelas", "Sergio Aguirre", 210, "novelas.jpg", 11, 1);
+const telon = new Libros ("Telón", "Agatha Christie", 215, "telon.jpg", 12, 1);
 
 //Recomendados
-const relatosInesperado = new Libros ("Relatos de lo inesperado", "Roald Dahl", 240, "relatos.jpg", "btn13", 13);
-const arbolesMuerenPie = new Libros ("Los árboles mueren de pie", "Alejandro Casona", 220, "arboles.jpg", "btn14", 14);
-const mujercitas = new Libros ("Mujercitas", "Louisa May Alcott", 230, "mujercitas.jpg", "btn15", 15);
-const caballeroArmadura = new Libros ("El caballero de la armadura oxidada", "Robert Fisher", 230, "armadura.jpg", "btn16", 16);
+const relatosInesperado = new Libros ("Relatos de lo inesperado", "Roald Dahl", 240, "relatos.jpg", 13, 1);
+const arbolesMuerenPie = new Libros ("Los árboles mueren de pie", "Alejandro Casona", 220, "arboles.jpg", 14, 1);
+const mujercitas = new Libros ("Mujercitas", "Louisa May Alcott", 230, "mujercitas.jpg", 15, 1);
+const caballeroArmadura = new Libros ("El caballero de la armadura oxidada", "Robert Fisher", 230, "armadura.jpg", 16, 1);
 
 //Arrays
 let librosDisponibles = [];
@@ -70,7 +69,6 @@ librosClasicos.forEach (libro => {
                     <p class="mt-auto"> $${libro.precio} </p>
                     <button id="boton${libro.id}" class="boton mt-auto "> Agregar al Carrito </button>`;
     contenedorLibros.appendChild(div);
-
         //Carrito
         const btnCarrito = document.getElementById(`boton${libro.id}`);
         btnCarrito.addEventListener("click", ()=>{
@@ -158,24 +156,32 @@ function mostrarCarrito(){
                     <button id="sacar${libro.id}" onClick = "eliminarDelCarrito(${libro.numero})" class="boton mt-auto"> Quitar del carrito </button>
                 </div>
             </div>`;
-        carrito.innerHTML = aux
-        calcularTotalCompra();
+        
+        
     })
-
+    carrito.innerHTML = aux 
+    calcularTotalCompra();
+    localStorage.setItem("compras", JSON.stringify(carritoCompras));
 }
 
 const eliminarDelCarrito = (numero) => {
     const libro = carritoCompras.find(libro => libro.numero === numero);
     carritoCompras.splice(carritoCompras.indexOf(libro),1);
-    mostrarCarrito();
+    mostrarCarrito(); 
 }
 
 const totalCompra = document.getElementById("totalCompra")
+let total;
+
 const calcularTotalCompra = () => {
-    let total = 0; 
+    total = 0; 
     carritoCompras.forEach( libro => {
         total += libro.precio * libro.cantidad;
     });
     totalCompra.innerText = "Tu total es de: $" + total;
+    localStorage.setItem("total", total)
 }
+
+
+
 
