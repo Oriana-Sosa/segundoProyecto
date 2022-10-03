@@ -34,13 +34,15 @@ formulario.addEventListener("submit", (e)=> {
     const apellido = document.getElementById("apellido");
     const email = document.getElementById("apellido");
     const direccion = document.getElementById("direccion");
-    const numeroTarjet = document.getElementById("tarjeta");
+    const numeroTarjet = document.getElementById("numeroTarjeta");
 
     let nombreCliente = (nombre.value)
     let apellidoCliente = (apellido.value);
     let emailCliente = (email.value);
     let direccionCliente = (direccion.value);
     let tarjetaCliente = (numeroTarjet.value);
+
+    isNaN(tarjetaCliente) && alert("Tarjeta no válida");
 })
 
 
