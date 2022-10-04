@@ -17,7 +17,7 @@ class Libros {
 //Clásicos
 const orgulloPrejuicio = new Libros ("Orgullo y Prejuicio", "Jane Austen", 250, "orgullo.jpg", 1, 1);
 const grandesEsperanzas = new Libros ("Grandes esperanzas", "Charles Dickens", 250, "esperanzas.jpg", 2, 1);
-const persuasion = new Libros ("Persuasión", "Jane Austen", 210, "persuasion.png", "btn3", 3, 1);
+const persuasion = new Libros ("Persuasión", "Jane Austen", 210, "persuasion.png", 3, 1);
 const islaDelTesoro = new Libros ("La isla del tesoro", "Robert Louis Stevenson", 230, "isla.jpg", 4, 1);
 
 //Juveniles
@@ -60,21 +60,27 @@ librosRecomendados.push(relatosInesperado,arbolesMuerenPie, mujercitas, caballer
 //DOM
 //Oferta de libros
 const contenedorLibros = document.getElementById("contenedorLibros");
-
 librosClasicos.forEach (libro => {
     let div = document.createElement("div");
     div.classList.add("col-md-2", "col-sm-5", "text-center", "my-3", "col-10", "d-flex", "flex-column", "tarjeta");
     div.innerHTML = `<img src="./img/${libro.imagen}" class="img-fluid imgCard">
                     <h4 class="mt-auto">${libro.titulo}</h4>
                     <p class="mt-auto"> $${libro.precio} </p>
-                    <button id="boton${libro.id}" class="boton mt-auto "> Agregar al Carrito </button>`;
+                    <button id="boton${libro.id}" class="boton mt-auto"> Agregar al Carrito </button>`;
     contenedorLibros.appendChild(div);
-        //Carrito
-        const btnCarrito = document.getElementById(`boton${libro.id}`);
-        btnCarrito.addEventListener("click", ()=>{
-            carritoCompras.push(libro);
-            mostrarCarrito();
-        })
+
+    //Carrito
+    const btnCarrito = document.getElementById(`boton${libro.id}`);
+    btnCarrito.addEventListener("click", ()=>{
+            const indexLibro = carritoCompras.indexOf(libro)
+            if (indexLibro === -1){
+                carritoCompras.push(libro)
+            } else {
+                libro.cantidad++
+            }
+        mostrarCarrito();
+    })
+
 })
 
 const contenedorJuveniles = document.getElementById("contenedorJuveniles");
@@ -91,7 +97,12 @@ librosJuveniles.forEach (libro => {
     //Carrito
     const btnCarrito = document.getElementById(`boton${libro.id}`);
     btnCarrito.addEventListener("click", ()=>{
-        carritoCompras.push(libro);
+        const indexLibro = carritoCompras.indexOf(libro)
+            if (indexLibro === -1){
+                carritoCompras.push(libro)
+            } else {
+                libro.cantidad++
+            }
         mostrarCarrito();
     })
 
@@ -114,9 +125,14 @@ librosMisterio.forEach (libro => {
         //Carrito
         const btnCarrito = document.getElementById(`boton${libro.id}`);
         btnCarrito.addEventListener("click", ()=>{
-            carritoCompras.push(libro);
-            mostrarCarrito();
-        })
+            const indexLibro = carritoCompras.indexOf(libro)
+            if (indexLibro === -1){
+                carritoCompras.push(libro)
+            } else {
+                libro.cantidad++
+            }
+        mostrarCarrito(); 
+    }) 
 })
 
 const contenedorRecomendados = document.getElementById("contenedorRecomendados");
@@ -133,8 +149,13 @@ librosRecomendados.forEach (libro => {
     const btnCarrito = document.getElementById(`boton${libro.id}`);
     //Carrito
         btnCarrito.addEventListener("click", ()=>{
-            carritoCompras.push(libro);
-            mostrarCarrito();
+            const indexLibro = carritoCompras.indexOf(libro)
+            if (indexLibro === -1){
+                carritoCompras.push(libro)
+            } else {
+                libro.cantidad++
+            }
+        mostrarCarrito();
         })
 
 })
@@ -153,7 +174,9 @@ function mostrarCarrito(){
                 <div class="d-flex flex-column m-3">
                     <h4 class="mt-auto">${libro.titulo}</h4>
                     <p class="mt-auto"> $${libro.precio} </p>
-                    <button id="sacar${libro.id}" onClick = "eliminarDelCarrito(${libro.numero})" class="boton mt-auto"> Quitar del carrito </button>
+                    <p class="mt-auto"> ${libro.cantidad} </p>
+                    <button id="sacar${libro.id}" onClick = "eliminarDelCarrito(${libro.numero})" class="boton"> Quitar del carrito </button>
+                    <button id="sacar${libro.id}" onClick = "eliminarUno(${libro.numero})" class="boton my-2"> Quitar una unidad </button>
                 </div>
             </div>`;
         
@@ -168,6 +191,14 @@ const eliminarDelCarrito = (numero) => {
     const libro = carritoCompras.find(libro => libro.numero === numero);
     carritoCompras.splice(carritoCompras.indexOf(libro),1);
     mostrarCarrito(); 
+}
+
+const eliminarUno = (numero) =>{
+    const libro = carritoCompras.find(libro => libro.numero === numero);
+    if(libro.cantidad>1){
+        libro.cantidad--
+    }
+    mostrarCarrito();
 }
 
 const totalCompra = document.getElementById("totalCompra")
