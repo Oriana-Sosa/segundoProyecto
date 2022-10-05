@@ -175,8 +175,8 @@ function mostrarCarrito(){
                     <h4 class="mt-auto">${libro.titulo}</h4>
                     <p class="mt-auto"> $${libro.precio} </p>
                     <p class="mt-auto"> ${libro.cantidad} </p>
-                    <button id="sacar${libro.id}" onClick = "eliminarDelCarrito(${libro.numero})" class="boton"> Quitar del carrito </button>
-                    <button id="sacar${libro.id}" onClick = "eliminarUno(${libro.numero})" class="boton my-2"> Quitar una unidad </button>
+                    <button id="sacar${libro.id}" onClick = "eliminarDelCarrito(${libro.id})" class="boton"> Quitar del carrito </button>
+                    <button id="sacar${libro.id}" onClick = "eliminarUno(${libro.id})" class="boton my-2"> Quitar una unidad </button>
                 </div>
             </div>`;
         
@@ -187,16 +187,18 @@ function mostrarCarrito(){
     localStorage.setItem("compras", JSON.stringify(carritoCompras));
 }
 
-const eliminarDelCarrito = (numero) => {
-    const libro = carritoCompras.find(libro => libro.numero === numero);
+const eliminarDelCarrito = (id) => {
+    const libro = carritoCompras.find(libro => libro.id === id);
     carritoCompras.splice(carritoCompras.indexOf(libro),1);
     mostrarCarrito(); 
 }
 
-const eliminarUno = (numero) =>{
-    const libro = carritoCompras.find(libro => libro.numero === numero);
-    if(libro.cantidad>1){
-        libro.cantidad--
+
+
+const eliminarUno = (id) =>{
+    const libroNuevo = carritoCompras.find(libro => libro.id === id);
+    if(libroNuevo.cantidad>1){
+        libroNuevo.cantidad--
     }
     mostrarCarrito();
 }

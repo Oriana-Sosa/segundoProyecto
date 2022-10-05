@@ -8,8 +8,8 @@ if (localStorage.getItem("compras")){
 carritoCompras.forEach(libro => {
     let div = document.createElement("div");
     div.classList.add("d-flex", "justify-content-between");
-    div.innerHTML = `<h3 class="infoFactura">${libro.titulo}</h3>
-                    <h3 class="infoFactura">$${libro.precio}</h3>
+    div.innerHTML = `<h3 class="infoFactura">${libro.titulo} x${libro.cantidad}</h3>
+                    <h3 class="infoFactura">$${libro.precio} c/u</h3>
                     `;
     factura.appendChild(div);
 })
