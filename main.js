@@ -79,6 +79,15 @@ librosClasicos.forEach (libro => {
                 libro.cantidad++
             }
         mostrarCarrito();
+        Toastify({
+            text:`Has añadido "${libro.titulo}" a tu carrito de compras`,
+            duration: 3000,
+            gravity: "bottom",
+            className: "notificacion",
+            style: {
+                background: "#009600",
+            }
+        }).showToast()
     })
 
 })
@@ -104,6 +113,15 @@ librosJuveniles.forEach (libro => {
                 libro.cantidad++
             }
         mostrarCarrito();
+        Toastify({
+            text:`Has añadido "${libro.titulo}" a tu carrito de compras`,
+            duration: 3000,
+            gravity: "bottom",
+            className: "notificacion",
+            style: {
+                background: "#009600",
+            }
+        }).showToast()
     })
 
 })
@@ -131,7 +149,16 @@ librosMisterio.forEach (libro => {
             } else {
                 libro.cantidad++
             }
-        mostrarCarrito(); 
+        mostrarCarrito();
+        Toastify({
+            text:`Has añadido "${libro.titulo}" a tu carrito de compras`,
+            duration: 3000,
+            gravity: "bottom",
+            className: "notificacion",
+            style: {
+                background: "#009600",
+            }
+        }).showToast()
     }) 
 })
 
@@ -155,12 +182,18 @@ librosRecomendados.forEach (libro => {
             } else {
                 libro.cantidad++
             }
-        mostrarCarrito();
+            mostrarCarrito();
+            Toastify({
+                text:`Has añadido "${libro.titulo}" a tu carrito de compras`,
+                duration: 3000,
+                gravity: "bottom",
+                className: "notificacion",
+                style: {
+                    background: "#009600",
+                }
+            }).showToast()
         })
-
 })
-
-
 
 //Carrito
 const carrito = document.getElementById("carrito");

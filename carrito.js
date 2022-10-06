@@ -42,7 +42,19 @@ formulario.addEventListener("submit", (e)=> {
     let direccionCliente = (direccion.value);
     let tarjetaCliente = (numeroTarjet.value);
 
-    isNaN(tarjetaCliente) && alert("Tarjeta no válida");
+    if (isNaN(tarjetaCliente)){
+        swal.fire({
+            title:"Tarjeta no válida",
+            icon:"error"
+        })
+    } else{
+        Swal.fire({
+        title: `¡Gracias por tu compra, ${nombreCliente} ${apellidoCliente}!`,
+        text: `Enviaremos tu compra a ${direccionCliente}`,
+        icon: "success",
+        backdrop: "white"
+    })
+    }   
 })
 
 
