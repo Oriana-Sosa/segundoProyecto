@@ -1,0 +1,29 @@
+[
+    {
+        "titulo": "Historia de dos ciudades",
+        "autor": "Charles Dickens",
+        "precio": 300,
+        "imagen": "historia.png"
+    },
+
+    {
+        "titulo": "Emma",
+        "autor": "Jane Austen",
+        "precio": 540,
+        "imagen": "emma.jpg"
+    },
+
+    {
+        "titulo": "La magia de la vida",
+        "autor": "Viviana Rivero",
+        "precio": 620,
+        "imagen": "magia.jpg"
+    },
+
+    {
+        "titulo": "Los ojos del perro siberiano",
+        "autor": "Antonio Santa Ana",
+        "precio": 620,
+        "imagen": "ojos.jpg"
+    }
+]
