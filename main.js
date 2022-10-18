@@ -230,9 +230,7 @@ const eliminarDelCarrito = (id) => {
 
 const eliminarUno = (id) =>{
     const libroNuevo = carritoCompras.find(libro => libro.id === id);
-    if(libroNuevo.cantidad>1){
-        libroNuevo.cantidad--
-    }
+    libroNuevo.cantidad>1 && libroNuevo.cantidad --
     mostrarCarrito();
 }
 
@@ -264,6 +262,12 @@ fetch (proximamente)
                     <p class="mt-auto"> $${libro.precio} </p>`;
     proximos.appendChild(div);
     })
+   }).catch((error) => {
+    console.log(error);
    })
+
+
+
+
 
 

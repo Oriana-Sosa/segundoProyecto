@@ -1,4 +1,5 @@
 //Seccion aparte del carrito de compras
+let carritoCompras = [];
 if (localStorage.getItem("compras")){
     let libroComprado = JSON.parse(localStorage.getItem("compras"));
     carritoCompras.push(...libroComprado)
@@ -18,11 +19,11 @@ const facturaTotal = document.getElementById("facturaTotal");
 const verFactura = document.getElementById("verFactura")
 
 //Botones 
+let totalFinal = localStorage.getItem("total");
 verFactura.onclick = () =>{
-    facturaTotal.innerText = `Tu total es de $${totalFinal}`
+   totalFinal == null ? facturaTotal.innerText = `Tu total es de $0`: facturaTotal.innerText = `Tu total es de $${totalFinal}`   
 }
 
-let totalFinal = localStorage.getItem("total");
 
 
 const formulario = document.getElementById("formulario");
@@ -54,7 +55,9 @@ formulario.addEventListener("submit", (e)=> {
         icon: "success",
         backdrop: "white"
     })
-    }   
+    } 
+    
+    localStorage.clear();
 })
 
 
