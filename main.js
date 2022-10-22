@@ -73,11 +73,7 @@ librosClasicos.forEach (libro => {
     const btnCarrito = document.getElementById(`boton${libro.id}`);
     btnCarrito.addEventListener("click", ()=>{
             const indexLibro = carritoCompras.indexOf(libro)
-            if (indexLibro === -1){
-                carritoCompras.push(libro)
-            } else {
-                libro.cantidad++
-            }
+            indexLibro === -1 ? carritoCompras.push(libro) : libro.cantidad ++
         mostrarCarrito();
         Toastify({
             text:`Has añadido "${libro.titulo}" a tu carrito de compras`,
@@ -91,6 +87,8 @@ librosClasicos.forEach (libro => {
     })
 
 })
+
+
 
 const contenedorJuveniles = document.getElementById("contenedorJuveniles");
 
@@ -107,11 +105,7 @@ librosJuveniles.forEach (libro => {
     const btnCarrito = document.getElementById(`boton${libro.id}`);
     btnCarrito.addEventListener("click", ()=>{
         const indexLibro = carritoCompras.indexOf(libro)
-            if (indexLibro === -1){
-                carritoCompras.push(libro)
-            } else {
-                libro.cantidad++
-            }
+        indexLibro === -1 ? carritoCompras.push(libro) : libro.cantidad ++
         mostrarCarrito();
         Toastify({
             text:`Has añadido "${libro.titulo}" a tu carrito de compras`,
@@ -144,21 +138,17 @@ librosMisterio.forEach (libro => {
         const btnCarrito = document.getElementById(`boton${libro.id}`);
         btnCarrito.addEventListener("click", ()=>{
             const indexLibro = carritoCompras.indexOf(libro)
-            if (indexLibro === -1){
-                carritoCompras.push(libro)
-            } else {
-                libro.cantidad++
-            }
-        mostrarCarrito();
-        Toastify({
-            text:`Has añadido "${libro.titulo}" a tu carrito de compras`,
-            duration: 3000,
-            gravity: "bottom",
-            className: "notificacion",
-            style: {
-                background: "#009600",
-            }
-        }).showToast()
+            indexLibro === -1 ? carritoCompras.push(libro) : libro.cantidad ++
+            mostrarCarrito();
+            Toastify({
+                text:`Has añadido "${libro.titulo}" a tu carrito de compras`,
+                duration: 3000,
+                gravity: "bottom",
+                className: "notificacion",
+                style: {
+                    background: "#009600",
+                }
+            }).showToast()
     }) 
 })
 
@@ -177,11 +167,7 @@ librosRecomendados.forEach (libro => {
     //Carrito
         btnCarrito.addEventListener("click", ()=>{
             const indexLibro = carritoCompras.indexOf(libro)
-            if (indexLibro === -1){
-                carritoCompras.push(libro)
-            } else {
-                libro.cantidad++
-            }
+            indexLibro === -1 ? carritoCompras.push(libro) : libro.cantidad ++
             mostrarCarrito();
             Toastify({
                 text:`Has añadido "${libro.titulo}" a tu carrito de compras`,
@@ -267,6 +253,27 @@ fetch (proximamente)
    })
 
 
+//Por si el usuario hace refresh en la página
+if (localStorage.getItem("compras")){
+    let div = document.createElement("div");
+    div.classList.add("d-flex", "flex-wrap", "flex-column", "text-center", "align-content-center", "my-5");
+    div.innerHTML = `<h4>Todavia tienes compras antiguas en tu carrito</h4>
+                    <button class="boton" id="cancelarCarrito">Cancelar Compra</button>`;
+    carrito.appendChild(div);
+}
+
+const cancelarCarrito = document.getElementById("cancelarCarrito");
+
+cancelarCarrito.onclick = () =>{
+    localStorage.clear()
+    Swal.fire({
+        title: `¡Perfecto! Tus compras antiguas han sido eliminadas.`,
+        text: `¡Sigue con tus compras!`,
+        icon: "success",
+        backdrop: "white"
+    })
+}
+    
 
 
 

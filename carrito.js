@@ -68,3 +68,8 @@ cancelar.onclick = () =>{
     localStorage.clear();
 }
 
+const nombre = document.getElementById("nombre");
+
+nombre.onclick = () =>{
+    localStorage.clear();
+}
