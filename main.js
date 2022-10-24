@@ -253,18 +253,15 @@ fetch (proximamente)
    })
 
 
-//Por si el usuario hace refresh en la página
+//Por si el usuario tiene compras viejas olvidadas en el carrito
 if (localStorage.getItem("compras")){
     let div = document.createElement("div");
     div.classList.add("d-flex", "flex-wrap", "flex-column", "text-center", "align-content-center", "my-5");
     div.innerHTML = `<h4>Todavia tienes compras antiguas en tu carrito</h4>
                     <button class="boton" id="cancelarCarrito">Cancelar Compra</button>`;
     carrito.appendChild(div);
-}
-
-const cancelarCarrito = document.getElementById("cancelarCarrito");
-
-cancelarCarrito.onclick = () =>{
+    const cancelarCarrito = document.getElementById("cancelarCarrito");
+    cancelarCarrito.addEventListener("click", () =>{
     localStorage.clear()
     Swal.fire({
         title: `¡Perfecto! Tus compras antiguas han sido eliminadas.`,
@@ -272,9 +269,6 @@ cancelarCarrito.onclick = () =>{
         icon: "success",
         backdrop: "white"
     })
-}
+})
     
-
-
-
-
+}
