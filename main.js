@@ -238,19 +238,19 @@ const proximamente = "proximamente.json";
 const proximos= document.getElementById("proximos");
 
 fetch (proximamente)
-   .then (respuesta => respuesta.json())
-   .then ((proximosLibros) => {
-    proximosLibros.forEach(libro =>{
-        let div = document.createElement("div");
-    div.classList.add("col-md-2", "col-sm-5", "text-center", "my-3", "col-10", "d-flex", "flex-column", "tarjeta");
-    div.innerHTML = `<img src="./img/${libro.imagen}" class="img-fluid imgCard">
-                    <h4 class="mt-auto" >${libro.titulo}</h4>
-                    <p class="mt-auto"> $${libro.precio} </p>`;
-    proximos.appendChild(div);
-    })
-   }).catch((error) => {
-    console.log(error);
-   })
+    .then (respuesta => respuesta.json())
+    .then ((proximosLibros) => {
+        proximosLibros.forEach(libro =>{
+            let div = document.createElement("div");
+            div.classList.add("col-md-2", "col-sm-5", "text-center", "my-3", "col-10", "d-flex", "flex-column", "tarjeta");
+            div.innerHTML = `<img src="./img/${libro.imagen}" class="img-fluid imgCard">
+                            <h4 class="mt-auto" >${libro.titulo}</h4>
+                            <p class="mt-auto"> $${libro.precio} </p>`;
+            proximos.appendChild(div);
+        })
+    }).catch((error) => {
+        console.log(error);
+})
 
 
 //Por si el usuario tiene compras viejas olvidadas en el carrito
@@ -269,6 +269,5 @@ if (localStorage.getItem("compras")){
         icon: "success",
         backdrop: "white"
     })
-})
-    
+})  
 }

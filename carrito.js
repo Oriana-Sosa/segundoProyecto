@@ -21,7 +21,7 @@ const verFactura = document.getElementById("verFactura")
 //Botones 
 let totalFinal = localStorage.getItem("total");
 verFactura.onclick = () =>{
-   totalFinal == null ? facturaTotal.innerText = `Tu total es de $0`: facturaTotal.innerText = `Tu total es de $${totalFinal}`   
+    totalFinal == null ? facturaTotal.innerText = `Tu total es de $0`: facturaTotal.innerText = `Tu total es de $${totalFinal}`   
 }
 
 
